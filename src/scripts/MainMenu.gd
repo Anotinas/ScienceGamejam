@@ -23,9 +23,5 @@ func _ready():
 func _on_StartButton_pressed():
 	gameInstance = game.instance()
 	self.remove_child(menu)
-	#self.add_child(gameInstance)
-	self.add_child(settings.instance())
-
-
-func _on_QuitButton_pressed():
-	get_tree().quit()
+	self.add_child(gameInstance)
+	#self.add_child(settings.instance())
