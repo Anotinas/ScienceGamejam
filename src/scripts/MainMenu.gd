@@ -6,6 +6,8 @@ extends Node2D
 # var b = "text"
 
 onready var game = preload("res://src/GameManager.tscn")
+# TODO : remove
+onready var settings = preload("res://src/SettingsMenu.tscn")
 var menu
 var gameInstance
 # Called when the node enters the scene tree for the first time.
@@ -21,10 +23,8 @@ func _ready():
 func _on_StartButton_pressed():
 	gameInstance = game.instance()
 	self.remove_child(menu)
-	self.add_child(gameInstance)
-
-func _on_SettingsButton_pressed():
-	pass # Replace with function body.
+	#self.add_child(gameInstance)
+	self.add_child(settings.instance())
 
 
 func _on_QuitButton_pressed():
