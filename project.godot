@@ -22,8 +22,8 @@ WorldviewManager="*res://src/WorldviewManager.gd"
 [global]
 
 scene=false
-"default scene"=false
 input=false
+"default scene"=false
 
 [input]
 
