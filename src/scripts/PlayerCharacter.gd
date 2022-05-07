@@ -1,29 +1,29 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-var speed = 150
-# var b = "text"
+const GRAVITY = 600
+const WALK_SPEED = 200
+const JUMP_FORCE = 500
+
+var velocity = Vector2()
+var screen_size
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	screen_size = get_viewport_rect().size
 	
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.dw
-func _process(delta):
-	var movement : Vector2
-
-	if(Input.is_action_pressed("right")):
-		movement.x = speed * delta
-	elif(Input.is_action_pressed("left")):
-		movement.x = -(speed * delta)
-
-	if(Input.is_action_pressed("up")):
-		movement.y = -(speed * delta)
+func _physics_process(delta):
+	velocity.y += delta * GRAVITY
+	
+	if Input.is_action_pressed("left"):
+		velocity.x = -WALK_SPEED
+	elif Input.is_action_pressed("right"):
+		velocity.x = WALK_SPEED
 	else:
-		pass
-
-	move_and_collide(movement)
+		velocity.x = lerp(velocity.x, 0, 0.1)
+	
+	if Input.is_action_pressed("up") and is_on_floor():
+		velocity.y = -JUMP_FORCE
+	 
+	velocity = move_and_slide(velocity, Vector2.UP)
