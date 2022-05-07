@@ -17,10 +17,12 @@ config/icon="res://icon.png"
 [autoload]
 
 SignalSingleton="*res://src/scripts/SignalSingleton.gd"
+WorldviewManager="*res://src/WorldviewManager.gd"
 
 [global]
 
 scene=false
+"default scene"=false
 input=false
 
 [input]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/WorldviewManager.gd" type="Script" id=1]
+
+[node name="WorldviewManager" type="Node"]
+script = ExtResource( 1 )
