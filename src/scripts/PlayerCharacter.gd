@@ -7,6 +7,7 @@ const JUMP_FORCE = 500
 
 var velocity = Vector2()
 var screen_size
+var is_dead :bool = false
 
 
 func _ready():
@@ -27,3 +28,9 @@ func _physics_process(delta):
 		velocity.y = -JUMP_FORCE
 	 
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+func _on_DeathBox_body_entered(body):
+	if(!is_dead):
+		SignalSingleton.emit_signal("player_has_died")
+	is_dead = true
+

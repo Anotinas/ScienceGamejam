@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Idea Game"
-run/main_scene="res://src/Game.tscn"
+run/main_scene="res://src/GameManager.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SignalSingleton="*res://src/scripts/SignalSingleton.gd"
 
 [global]
 
