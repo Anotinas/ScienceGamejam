@@ -13,9 +13,13 @@ var is_at_bookself: bool = false
 
 
 func _ready():
+	$"Main Window".hide()
 	screen_size = get_viewport_rect().size
 	SignalSingleton.connect("bookshelf_entered", self, "_on_bookshelf_entered")
 	SignalSingleton.connect("bookshelf_left", self, "_on_bookshelf_entered")
+	
+	WorldviewManager.connect("beliefs_changed", self, "_on_beliefs_changed")
+	
 	
 
 func _physics_process(delta):
@@ -48,11 +52,18 @@ func _on_DeathBox_area_entered(area):
 	is_dead = true
 
 func open_bookshelf():
+	$"Main Window".show()
 	print("Henlo")
-	add_child(load("res://src/WorldviewWindow.tscn").instance())
 
 func _on_bookshelf_entered():
 	is_at_bookself = true
 	
 func _on_bookshelf_left():
 	is_at_bookself = false
+	
+func _on_beliefs_changed():
+	if (WorldviewManager.beliefs["clouds_are_real"]):
+		set_collision_mask_bit(2, true)
+	else:
+		set_collision_mask_bit(2, false)
+	
