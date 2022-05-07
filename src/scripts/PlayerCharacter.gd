@@ -16,7 +16,7 @@ func _ready():
 	$"Main Window".hide()
 	screen_size = get_viewport_rect().size
 	SignalSingleton.connect("bookshelf_entered", self, "_on_bookshelf_entered")
-	SignalSingleton.connect("bookshelf_left", self, "_on_bookshelf_entered")
+	SignalSingleton.connect("bookshelf_left", self, "_on_bookshelf_left")
 	
 	WorldviewManager.connect("beliefs_changed", self, "_on_beliefs_changed")
 	
@@ -24,16 +24,25 @@ func _ready():
 
 func _physics_process(delta):
 	velocity.y += delta * GRAVITY
+	print(is_at_bookself)
 	
 	if Input.is_action_pressed("left"):
 		velocity.x = -WALK_SPEED
+		$Sprite.play("running")		
 	elif Input.is_action_pressed("right"):
 		velocity.x = WALK_SPEED
+		$Sprite.play("running")		
 	elif Input.is_action_just_pressed("ui_accept"):
 		if(is_at_bookself):
 			open_bookshelf()
 	else:
 		velocity.x = lerp(velocity.x, 0, 0.1)
+		$Sprite.play("idle")		
+		
+	if velocity.x < 0:
+		$Sprite.scale.x = -0.344
+	else:
+		$Sprite.scale.x = 0.344
 	
 	if Input.is_action_pressed("up") and is_on_floor():
 		velocity.y = -JUMP_FORCE
