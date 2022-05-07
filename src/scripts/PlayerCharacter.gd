@@ -20,6 +20,8 @@ func _physics_process(delta):
 		velocity.x = -WALK_SPEED
 	elif Input.is_action_pressed("right"):
 		velocity.x = WALK_SPEED
+	elif Input.is_action_pressed("ui_accept"):
+		$WorldViewManager.toggle_clouds(true)
 	else:
 		velocity.x = lerp(velocity.x, 0, 0.1)
 	

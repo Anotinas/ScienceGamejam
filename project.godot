@@ -21,6 +21,7 @@ SignalSingleton="*res://src/scripts/SignalSingleton.gd"
 [global]
 
 scene=false
+input=false
 
 [input]
 
