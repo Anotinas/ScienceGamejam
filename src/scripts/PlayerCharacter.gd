@@ -12,7 +12,6 @@ var is_dead :bool = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	
 
 func _physics_process(delta):
 	velocity.y += delta * GRAVITY
@@ -34,3 +33,8 @@ func _on_DeathBox_body_entered(body):
 		SignalSingleton.emit_signal("player_has_died")
 	is_dead = true
 
+
+func _on_DeathBox_area_entered(area):
+	if(!is_dead):
+		SignalSingleton.emit_signal("player_has_died")
+	is_dead = true
