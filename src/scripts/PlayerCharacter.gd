@@ -26,7 +26,6 @@ func _ready():
 
 func _physics_process(delta):
 	velocity.y += delta * GRAVITY
-	print(is_at_bookself)
 	
 	if Input.is_action_pressed("left"):
 		velocity.x = -WALK_SPEED
