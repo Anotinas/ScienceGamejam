@@ -109,6 +109,7 @@ func _on_InteractionBox_area_exited(area):
 		print("Gubai again")			
 		is_at_npc = false
 		last_npc = null
+
 func _checkpoint_entered():
 	if (WorldviewManager.beliefs["player_can_reincarnate"]):
 		initialPosition = position
