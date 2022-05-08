@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/01 - Dark World.mp3-c238d1ef17b4e64d461e304fe1dca5b0.mp3str"
+
+[deps]
+
+source_file="res://src/sound/01 - Dark World.mp3"
+dest_files=[ "res://.import/01 - Dark World.mp3-c238d1ef17b4e64d461e304fe1dca5b0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

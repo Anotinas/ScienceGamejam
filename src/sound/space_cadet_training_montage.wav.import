@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/space_cadet_training_montage.wav-16dcedc374a0ed0070518a37c86d1841.sample"
+
+[deps]
+
+source_file="res://src/sound/space_cadet_training_montage.wav"
+dest_files=[ "res://.import/space_cadet_training_montage.wav-16dcedc374a0ed0070518a37c86d1841.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
