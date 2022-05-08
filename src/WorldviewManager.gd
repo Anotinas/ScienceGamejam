@@ -5,11 +5,19 @@ extends Node
 # var a = 2
 # var b = "text"
 
+onready var cloud_button = preload("res://CloudsButton.tscn")
+
 const MAX_WORLDVIEWS : int = 5
 var amount_selected : int = 0
 
+var unlocked_beliefs : Dictionary = {}
 
-var beliefs = {"clouds_are_real" : false, "player_can_reincarnate" : false}
+var beliefs = {
+				"clouds_are_real" : false,
+				"hell_exists": false,
+				"heaven_exists": false,
+				"player_can_reincarnate" : false}
+
 
 signal beliefs_changed
 
@@ -24,7 +32,3 @@ func set_worldview(worldview_name: String, state: bool):
 		amount_selected += 1
 	else:
 		amount_selected -= 1
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

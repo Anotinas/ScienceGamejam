@@ -11,7 +11,11 @@ func _ready():
 	SignalSingleton.connect("bookshelf_left", self, "hide")
 	$RichTextLabel.text = "Worldviews selected: " + str(WorldviewManager.amount_selected) + " out of " + str(WorldviewManager.MAX_WORLDVIEWS)
 	
-
+	if(WorldviewManager.unlocked_beliefs.has("cloud_exists")):
+		addCloudButton()
+	else:
+		SignalSingleton.connect("unlocked_clouds", self, "addCloudButton")
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -24,9 +28,15 @@ func hide():
 func show():
 	for i in get_children():
 		i.show()
-	
-	
+
+func addCloudButton() -> void:
+	var cloud_button = WorldviewManager.cloud_button.instance()
+	$HBoxContainer.add_child(cloud_button)
+	cloud_button.connect("toggled", self, "_on_CloudsButton_toggled")
+
+
 func _on_CloudsButton_toggled(button_pressed):
+	print("pressed")
 	if (button_pressed):
 		# This if check is due to a gimmick in how toggle mode works in Godot
 		$HBoxContainer/CloudsButton.modulate = Color(0, 1, 0.5)

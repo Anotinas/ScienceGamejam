@@ -10,3 +10,7 @@ signal restart_game
 signal player_reincarnates
 signal checkpoint_entered
 signal player_wins
+
+signal unlocked_clouds
+signal unlocked_heaven
+signal unlocked_hell
