@@ -26,8 +26,8 @@ func _process(delta):
 func _on_beliefs_changed():
 	if (WorldviewManager.beliefs["aliens_are_real"]):
 		visible = true
-		$Area2D.monitorable = false
-		$Area2D.monitoring = false
+		$Area2D.monitorable = true
+		$Area2D.monitoring = true
 	
 func talk():
 	if current_dialogue > dialogue_lines.size() - 1:

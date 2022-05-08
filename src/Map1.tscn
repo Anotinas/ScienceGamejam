@@ -566,7 +566,7 @@ scale = Vector2( 2.5625, 2.5625 )
 frame = 2
 
 [node name="AlienNPC" parent="." instance=ExtResource( 3 )]
-position = Vector2( 776, -104 )
+position = Vector2( 359, -470 )
 scale = Vector2( 2.563, 2.563 )
 frame = 2
 dialogue_lines = [ "I have a secret", "I am going to tell it to you now", "Are you ready?", "Promise not to tell anyone?", "Alright tere we go:", "I am an alien!", "Are you surprised?", "You should be, yeah" ]

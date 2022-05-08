@@ -41,7 +41,7 @@ func _physics_process(delta):
 		$Sprite.play("running")		
 	elif Input.is_action_just_pressed("ui_accept"):
 		# THIS IS DEBUG
-		#WorldviewManager.set_worldview("aliens_are_real", true)
+		# WorldviewManager.set_worldview("aliens_are_real", true)
 		if(is_at_bookself):
 			open_bookshelf()
 		if(is_at_npc):
