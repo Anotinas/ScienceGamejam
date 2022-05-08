@@ -17,7 +17,7 @@ extents = Vector2( 28, 30 )
 [node name="AnimatedSprite" type="AnimatedSprite"]
 frames = SubResource( 1 )
 
-[node name="InteractableArea" type="Area2D" parent="."]
+[node name="InteractableArea" type="Area2D" parent="." groups=["bookshelf"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]

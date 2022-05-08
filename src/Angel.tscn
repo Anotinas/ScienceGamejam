@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/textures/Elf_F_Idle_3.png" type="Texture" id=1]
+[ext_resource path="res://src/textures/Elf_F_Idle_2.png" type="Texture" id=2]
+[ext_resource path="res://src/textures/Elf_F_Idle_4.png" type="Texture" id=3]
+[ext_resource path="res://src/textures/Elf_F_Idle_1.png" type="Texture" id=4]
+[ext_resource path="res://src/NPC.gd" type="Script" id=5]
+[ext_resource path="res://src/textures/Angel/angel-0.png" type="Texture" id=6]
+[ext_resource path="res://src/textures/Angel/angel-2.png" type="Texture" id=7]
+[ext_resource path="res://src/textures/Angel/angel-3.png" type="Texture" id=8]
+[ext_resource path="res://src/textures/Angel/angel-1.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "idle_angel",
+"speed": 5.0
+} ]
+
+[node name="Angel" type="AnimatedSprite"]
+position = Vector2( 13.5, -12.75 )
+scale = Vector2( 1.79412, 1.59302 )
+z_index = -1
+frames = SubResource( 1 )
+animation = "idle_angel"
+frame = 2
+playing = true
+script = ExtResource( 5 )
+is_angel = true
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+margin_left = -81.0
+margin_top = -29.0
+margin_right = -41.0
+margin_bottom = -24.0
+color = Color( 0.396078, 0.368627, 0.403922, 0.827451 )
+
+[node name="Dialogue" type="RichTextLabel" parent="."]
+visible = false
+margin_left = -62.0
+margin_top = -53.0
+margin_right = 62.0
+margin_bottom = -36.0
+text = "This is sample text"
+fit_content_height = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["npc"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 17, 5, 12, -17, 0, -22, -10, -13, -14, 7, -13, 17, 2, 21, 14, 17 )

@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 
-const GRAVITY = 1300
+const GRAVITY = 1200
 const WALK_SPEED = 200
-const JUMP_FORCE = 700
+const JUMP_FORCE = 750
 
 var velocity = Vector2()
 var screen_size
@@ -77,11 +77,13 @@ func open_bookshelf():
 	
 
 func _on_bookshelf_entered():
-	is_at_bookself = true
+	#is_at_bookself = true
+	pass
 
 
 func _on_bookshelf_left():
-	is_at_bookself = false
+	#is_at_bookself = false
+	pass
 
 
 func _on_beliefs_changed():
@@ -102,6 +104,8 @@ func _on_InteractionBox_area_entered(area):
 		print("Henlo again")
 		is_at_npc = true
 		last_npc = area.get_parent()
+	elif (area.is_in_group("bookshelf")):
+		is_at_bookself = true
 
 
 func _on_InteractionBox_area_exited(area):
@@ -109,6 +113,8 @@ func _on_InteractionBox_area_exited(area):
 		print("Gubai again")			
 		is_at_npc = false
 		last_npc = null
+	elif (area.is_in_group("bookshelf")):
+		is_at_bookself = false
 
 func _checkpoint_entered():
 	if (WorldviewManager.beliefs["player_can_reincarnate"]):
