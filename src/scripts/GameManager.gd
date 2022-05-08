@@ -9,6 +9,7 @@ var reincarnationScene
 onready var gameScene = preload("res://src/GameInstance.tscn")
 onready var gameOver = preload("res://src/GameOver.tscn")
 onready var reincarnation = preload("res://src/Reincarnation.tscn")
+onready var winScreen = preload("res://src/WinScreen.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +17,7 @@ func _ready():
 	SignalSingleton.connect("player_has_died", self, "_on_player_died")
 	SignalSingleton.connect("restart_game", self, "_restart_game")
 	SignalSingleton.connect("player_reincarnates", self, "_player_reincarnates")
+	SignalSingleton.connect("player_wins", self, "_player_wins")
 
 	gameInstance = gameScene.instance()
 	self.add_child(gameInstance)
@@ -28,7 +30,8 @@ func _on_player_died():
 		#self.remove_child(gameInstance)
 		self.add_child(reincarnationScene)
 	else:
-		_restart_game()
+		gameOverInstance = gameOver.instance()
+		self.add_child(gameOverInstance)
 
 func _restart_game():
 	gameOverInstance.queue_free()
@@ -44,3 +47,8 @@ func _player_reincarnates():
 	gameInstance.goToLastCheckpoint()
 	reincarnationScene.queue_free()
 	self.add_child(gameInstance)
+
+func _player_wins():
+	gameInstance.queue_free()
+	self.add_child(winScreen.instance())
+
