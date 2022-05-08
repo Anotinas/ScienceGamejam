@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 
-const GRAVITY = 1300
+const GRAVITY = 1200
 const WALK_SPEED = 200
-const JUMP_FORCE = 700
+const JUMP_FORCE = 750
 
 var velocity = Vector2()
 var screen_size
