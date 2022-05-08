@@ -36,7 +36,6 @@ position = Vector2( 0.5, -0.538235 )
 scale = Vector2( 0.34375, 0.370037 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
 playing = true
 
 [node name="DeathBox" type="Area2D" parent="."]

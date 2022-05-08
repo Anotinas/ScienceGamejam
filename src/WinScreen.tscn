@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/textures/Free mountain background/Transparent PNG/layer-1-sky.png" type="Texture" id=1]
 [ext_resource path="res://src/QuitButton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/scripts/GameOver.gd" type="Script" id=3]
-[ext_resource path="res://src/textures/Free mountain background/Transparent PNG/layer-2-mountain.png" type="Texture" id=4]
+[ext_resource path="res://src/textures/Free mountain background/Transparent PNG/layer-2-mountain.png" type="Texture" id=3]
 
-[node name="GameOver" type="Node2D"]
-script = ExtResource( 3 )
+[node name="WinScreen" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -16,39 +14,37 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -43.0
-margin_top = -39.5
-margin_right = 43.0
-margin_bottom = 39.5
+margin_left = -140.5
+margin_top = -44.5
+margin_right = 140.5
+margin_bottom = 44.5
 
 [node name="Label" type="Label" parent="GridContainer2"]
-margin_right = 86.0
-margin_bottom = 31.0
+margin_right = 281.0
+margin_bottom = 65.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "You are dead.
-Game Over"
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Thanks to your sheer will and determination
+You overcame all of the obstacles
+And beat the game
+You win"
 align = 1
 valign = 1
 
 [node name="GridContainer" type="GridContainer" parent="GridContainer2"]
-margin_top = 35.0
-margin_right = 86.0
-margin_bottom = 79.0
+margin_top = 69.0
+margin_right = 281.0
+margin_bottom = 89.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
 
-[node name="RestartButton" type="Button" parent="GridContainer2/GridContainer"]
-margin_right = 86.0
+[node name="QuitButton" parent="GridContainer2/GridContainer" instance=ExtResource( 2 )]
+margin_top = 0.0
+margin_right = 281.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
-text = "Restart"
-
-[node name="QuitButton" parent="GridContainer2/GridContainer" instance=ExtResource( 2 )]
-margin_top = 24.0
-margin_right = 86.0
-margin_bottom = 44.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -65,6 +61,4 @@ motion_mirroring = Vector2( 3072, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2( -37, -283 )
-texture = ExtResource( 4 )
-
-[connection signal="pressed" from="GridContainer2/GridContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+texture = ExtResource( 3 )
