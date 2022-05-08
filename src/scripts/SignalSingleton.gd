@@ -23,4 +23,5 @@ signal unlocked_heaven
 signal unlocked_aliens
 signal unlocked_hell
 
+signal remove_heaven
 
