@@ -43,21 +43,25 @@ func show():
 	for i in get_children():
 		i.show()
 
-func unlockBelief(worldview_name: String):
+func unlockBelief(worldview_name: String) -> bool:
 	if (!WorldviewManager.unlocked_beliefs.has(worldview_name)):
 		WorldviewManager.unlocked_beliefs.append(worldview_name)
+		return true
+	return false
 
 func addCloudButton() -> void:
-	unlockBelief("clouds_are_real")
-	var cloud_button = WorldviewManager.cloud_button.instance()
-	$HBoxContainer.add_child(cloud_button)
-	cloud_button.connect("toggled", self, "_on_CloudsButton_toggled")
+	var success = unlockBelief("clouds_are_real")
+	if (success):
+		var cloud_button = WorldviewManager.cloud_button.instance()
+		$HBoxContainer.add_child(cloud_button)
+		cloud_button.connect("toggled", self, "_on_CloudsButton_toggled")
 	
 func addAliensButton() -> void:
-	unlockBelief("aliens_are_real")
-	var aliens_button = WorldviewManager.aliens_button.instance()
-	$HBoxContainer.add_child(aliens_button)
-	aliens_button.connect("toggled", self, "_on_AliensButton_toggled")
+	var success = unlockBelief("aliens_are_real")
+	if (success):
+		var aliens_button = WorldviewManager.aliens_button.instance()
+		$HBoxContainer.add_child(aliens_button)
+		aliens_button.connect("toggled", self, "_on_AliensButton_toggled")
 
 func addHeavenButton() -> void:
 	var heaven_button = WorldviewManager.heaven_button.instance()
