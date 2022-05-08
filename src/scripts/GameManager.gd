@@ -30,7 +30,8 @@ func _on_player_died():
 		#self.remove_child(gameInstance)
 		self.add_child(reincarnationScene)
 	else:
-		_restart_game()
+		gameOverInstance = gameOver.instance()
+		self.add_child(gameOverInstance)
 
 func _restart_game():
 	gameOverInstance.queue_free()
