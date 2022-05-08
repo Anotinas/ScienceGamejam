@@ -6,6 +6,7 @@ extends Node
 # var b = "text"
 
 onready var cloud_button = preload("res://CloudsButton.tscn")
+onready var heaven_button = preload("res://src/HeavenButton.tscn")
 
 const MAX_WORLDVIEWS : int = 5
 var amount_selected : int = 0
