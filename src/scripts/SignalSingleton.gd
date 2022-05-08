@@ -11,9 +11,12 @@ signal player_reincarnates
 signal checkpoint_entered
 signal player_wins
 signal book_entered
+signal set_checkpoint
 
 signal unlocked_reincarnation
 signal unlocked_clouds
 signal unlocked_heaven
 signal unlocked_aliens
 signal unlocked_hell
+
+
