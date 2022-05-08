@@ -5,7 +5,8 @@ extends Node
 # var a = 2
 # var b = "text"
 
-onready var cloud_button = preload("res://CloudsButton.tscn")
+onready var cloud_button = preload("res://src/CloudsButton.tscn")
+onready var aliens_button = preload("res://src/AliensButton.tscn")
 onready var heaven_button = preload("res://src/HeavenButton.tscn")
 onready var reincarnation_button = preload("res://src/ReincarnationButton.tscn")
 
