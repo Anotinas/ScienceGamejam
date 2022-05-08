@@ -27,3 +27,6 @@ func talk():
 		$Dialogue.visible = true	
 		$Dialogue.text = dialogue_lines[current_dialogue]
 		current_dialogue += 1
+	
+	if(current_dialogue == 0):
+		SignalSingleton.emit_signal("unlocked_clouds")
