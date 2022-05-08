@@ -9,6 +9,7 @@ export var dialogue_lines = ["Henlo", "Skies are nice today, aren't they?", "I w
 var current_dialogue: int = 0
 
 export(bool) var is_alien: bool = false
+export(bool) var is_angel: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,11 @@ func _ready():
 		visible = false
 		$Area2D.monitorable = false
 		$Area2D.monitoring = false
+	if (is_angel && (!WorldviewManager.beliefs["heaven_exists"])):
+		visible = false
+		$Area2D.monitorable = false
+		$Area2D.monitoring = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
