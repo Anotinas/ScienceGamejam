@@ -591,30 +591,28 @@ z_index = -1
 [node name="NPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 3109, -542 )
 scale = Vector2( 2.5625, 2.5625 )
-frame = 0
+frame = 1
 
 [node name="AlienNPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 359, -470 )
 scale = Vector2( 2.563, 2.563 )
-frame = 0
+frame = 1
 is_alien = true
 
 [node name="todo-npc" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1421, -102 )
 scale = Vector2( 2.5625, 2.5625 )
-frame = 2
 
 [node name="cave-npc" parent="." instance=ExtResource( 3 )]
 position = Vector2( -3218, -1451 )
 scale = Vector2( 2.5625, 2.5625 )
 z_index = 0
-frame = 2
 dialogue_lines = [ "Hi!", "Have you heard about our lord and saviour?", "They live far above the world." ]
 
 [node name="mountain-npc" parent="." instance=ExtResource( 3 )]
 position = Vector2( -3839, -2346 )
 scale = Vector2( 2.5625, 2.5625 )
-frame = 1
+frame = 2
 dialogue_lines = [ "Hello there.", "The view is nice.", "But nothing else here, except down." ]
 
 [editable path="AlienNPC"]
