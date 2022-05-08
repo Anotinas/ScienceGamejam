@@ -9,7 +9,7 @@ const MAX_WORLDVIEWS : int = 5
 var amount_selected : int = 0
 
 
-var beliefs = {"clouds_are_real" : false}
+var beliefs = {"clouds_are_real" : false, "player_can_reincarnate" : false}
 
 signal beliefs_changed
 

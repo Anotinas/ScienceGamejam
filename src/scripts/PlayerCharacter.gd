@@ -21,12 +21,13 @@ func _ready():
 	SignalSingleton.connect("bookshelf_entered", self, "_on_bookshelf_entered")
 	SignalSingleton.connect("bookshelf_left", self, "_on_bookshelf_left")
 	
+	SignalSingleton.connect("checkpoint_entered", self, "_checkpoint_entered")
+	
 	WorldviewManager.connect("beliefs_changed", self, "_on_beliefs_changed")
 
 
 func _physics_process(delta):
 	velocity.y += delta * GRAVITY
-	print(is_at_bookself)
 	
 	if Input.is_action_pressed("left"):
 		velocity.x = -WALK_SPEED
@@ -65,7 +66,6 @@ func _on_DeathBox_area_entered(area):
 
 func open_bookshelf():
 	$"Main Window".show()
-	print("Henlo")
 	
 
 func _on_bookshelf_entered():
@@ -87,4 +87,8 @@ func reincarnation():
 	position = initialPosition
 	camera.setCurrent(true)
 	is_dead = false
+
+func _checkpoint_entered():
+	if (WorldviewManager.beliefs["player_can_reincarnate"]):
+		initialPosition = position
 
