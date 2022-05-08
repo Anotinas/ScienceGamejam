@@ -13,4 +13,5 @@ signal player_wins
 
 signal unlocked_clouds
 signal unlocked_heaven
+signal unlocked_aliens
 signal unlocked_hell
