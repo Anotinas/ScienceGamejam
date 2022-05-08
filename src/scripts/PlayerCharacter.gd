@@ -12,6 +12,10 @@ var camera
 var is_dead :bool = false
 var is_at_bookself: bool = false
 
+var is_at_npc: bool = false
+var last_npc = null
+
+
 
 func _ready():
 	$"Main Window".hide()
@@ -26,7 +30,6 @@ func _ready():
 
 func _physics_process(delta):
 	velocity.y += delta * GRAVITY
-	print(is_at_bookself)
 	
 	if Input.is_action_pressed("left"):
 		velocity.x = -WALK_SPEED
@@ -37,6 +40,8 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("ui_accept"):
 		if(is_at_bookself):
 			open_bookshelf()
+		if(is_at_npc):
+			last_npc.talk()
 	else:
 		velocity.x = lerp(velocity.x, 0, 0.1)
 		$Sprite.play("idle")		
@@ -88,3 +93,16 @@ func reincarnation():
 	camera.setCurrent(true)
 	is_dead = false
 
+
+func _on_InteractionBox_area_entered(area):
+	print("Henlo again")
+	if (area.is_in_group("npc")):
+		is_at_npc = true
+		last_npc = area.get_parent()
+
+
+func _on_InteractionBox_area_exited(area):
+	print("Gubai again")	
+	if (area.is_in_group("npc")):
+		is_at_npc = false
+		last_npc = null
