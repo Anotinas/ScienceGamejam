@@ -17,5 +17,6 @@ func _ready():
 #	pass
 
 func remove_heaven() -> void:
-	$"Heaven clouds".queue_free()
+	print("removing heaven")
+	get_node("Heaven clouds").queue_free()
 
