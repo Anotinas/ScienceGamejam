@@ -1,7 +1,11 @@
 extends Node
 
+var sound_db
+var sound_lvl
+
 signal player_has_died
 
+signal set_sound(sound_db)
 
 # World signals
 signal bookshelf_entered
