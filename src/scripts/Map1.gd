@@ -19,7 +19,10 @@ func _ready():
 
 func remove_heaven() -> void:
 	$"Heaven clouds".queue_free()
-	
+	print("removing heaven")
+	get_node("Heaven clouds").queue_free()
+
 func set_checkpoint(var player):
 	player.set_checkpoint(checkpoint.position)
+
 
