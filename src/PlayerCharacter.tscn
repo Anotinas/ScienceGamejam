@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/textures/Mage 2 Sprite 1.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/PlayerCharacter.gd" type="Script" id=2]
@@ -21,6 +21,9 @@ animations = [ {
 "speed": 2.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 22, 28 )
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30, 30 )
 
@@ -38,6 +41,12 @@ animation = "running"
 frame = 1
 playing = true
 
+[node name="InteractionBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox"]
+position = Vector2( -1, 0 )
+shape = SubResource( 4 )
+
 [node name="DeathBox" type="Area2D" parent="."]
 position = Vector2( -0.5, -1 )
 collision_layer = 2
@@ -54,5 +63,7 @@ shape = SubResource( 1 )
 
 [node name="Main Window" parent="." instance=ExtResource( 5 )]
 
+[connection signal="area_entered" from="InteractionBox" to="." method="_on_InteractionBox_area_entered"]
+[connection signal="area_exited" from="InteractionBox" to="." method="_on_InteractionBox_area_exited"]
 [connection signal="area_entered" from="DeathBox" to="." method="_on_DeathBox_area_entered"]
 [connection signal="body_entered" from="DeathBox" to="." method="_on_DeathBox_body_entered"]

@@ -15,7 +15,9 @@ var unlocked_beliefs : Dictionary = {}
 var beliefs = {
 				"clouds_are_real" : false,
 				"hell_exists": false,
-				"heaven_exists": false }
+				"heaven_exists": false,
+				"player_can_reincarnate" : false}
+
 
 signal beliefs_changed
 

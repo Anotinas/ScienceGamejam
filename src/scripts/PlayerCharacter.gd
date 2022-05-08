@@ -12,6 +12,10 @@ var camera
 var is_dead :bool = false
 var is_at_bookself: bool = false
 
+var is_at_npc: bool = false
+var last_npc = null
+
+
 
 func _ready():
 	$"Main Window".hide()
@@ -20,6 +24,8 @@ func _ready():
 	camera = get_child(get_child_count()-1)
 	SignalSingleton.connect("bookshelf_entered", self, "_on_bookshelf_entered")
 	SignalSingleton.connect("bookshelf_left", self, "_on_bookshelf_left")
+	
+	SignalSingleton.connect("checkpoint_entered", self, "_checkpoint_entered")
 	
 	WorldviewManager.connect("beliefs_changed", self, "_on_beliefs_changed")
 
@@ -36,6 +42,8 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("ui_accept"):
 		if(is_at_bookself):
 			open_bookshelf()
+		if(is_at_npc):
+			last_npc.talk()
 	else:
 		velocity.x = lerp(velocity.x, 0, 0.1)
 		$Sprite.play("idle")		
@@ -64,7 +72,6 @@ func _on_DeathBox_area_entered(area):
 
 func open_bookshelf():
 	$"Main Window".show()
-	print("Henlo")
 	
 
 func _on_bookshelf_entered():
@@ -86,4 +93,21 @@ func reincarnation():
 	position = initialPosition
 	camera.setCurrent(true)
 	is_dead = false
+
+
+func _on_InteractionBox_area_entered(area):
+	print("Henlo again")
+	if (area.is_in_group("npc")):
+		is_at_npc = true
+		last_npc = area.get_parent()
+
+
+func _on_InteractionBox_area_exited(area):
+	print("Gubai again")	
+	if (area.is_in_group("npc")):
+		is_at_npc = false
+		last_npc = null
+func _checkpoint_entered():
+	if (WorldviewManager.beliefs["player_can_reincarnate"]):
+		initialPosition = position
 
