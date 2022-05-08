@@ -40,6 +40,8 @@ func _physics_process(delta):
 		velocity.x = WALK_SPEED
 		$Sprite.play("running")		
 	elif Input.is_action_just_pressed("ui_accept"):
+		# THIS IS DEBUG
+		# WorldviewManager.set_worldview("aliens_are_real", true)
 		if(is_at_bookself):
 			open_bookshelf()
 		if(is_at_npc):
@@ -96,15 +98,15 @@ func reincarnation():
 
 
 func _on_InteractionBox_area_entered(area):
-	print("Henlo again")
 	if (area.is_in_group("npc")):
+		print("Henlo again")
 		is_at_npc = true
 		last_npc = area.get_parent()
 
 
 func _on_InteractionBox_area_exited(area):
-	print("Gubai again")	
 	if (area.is_in_group("npc")):
+		print("Gubai again")			
 		is_at_npc = false
 		last_npc = null
 
