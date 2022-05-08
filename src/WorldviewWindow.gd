@@ -70,6 +70,7 @@ func addHeavenButton() -> void:
 	
 func addReincarnationButton() -> void:
 	var reincarnation_button = WorldviewManager.reincarnation_button.instance()
+	WorldviewManager.beliefs["player_can_reincarnate"] = true
 	$HBoxContainer.add_child(reincarnation_button)
 	reincarnation_button.connect("toggled", self, "_on_ReincarnationButton_toggled")
 
