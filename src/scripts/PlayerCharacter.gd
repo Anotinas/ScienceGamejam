@@ -114,3 +114,6 @@ func _checkpoint_entered():
 	if (WorldviewManager.beliefs["player_can_reincarnate"]):
 		initialPosition = position
 
+func set_checkpoint(var position):
+	initialPosition = position
+
