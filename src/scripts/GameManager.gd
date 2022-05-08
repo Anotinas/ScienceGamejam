@@ -23,8 +23,7 @@ func _ready():
 
 func _on_player_died():
 	# TODO : link up to object with world views saved
-	var player_can_reincarnate = true
-	if (player_can_reincarnate):
+	if (WorldviewManager.beliefs["player_can_reincarnate"]):
 		reincarnationScene = reincarnation.instance()
 		#self.remove_child(gameInstance)
 		self.add_child(reincarnationScene)

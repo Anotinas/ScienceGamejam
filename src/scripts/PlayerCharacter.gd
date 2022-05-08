@@ -25,6 +25,8 @@ func _ready():
 	SignalSingleton.connect("bookshelf_entered", self, "_on_bookshelf_entered")
 	SignalSingleton.connect("bookshelf_left", self, "_on_bookshelf_left")
 	
+	SignalSingleton.connect("checkpoint_entered", self, "_checkpoint_entered")
+	
 	WorldviewManager.connect("beliefs_changed", self, "_on_beliefs_changed")
 
 
@@ -70,7 +72,6 @@ func _on_DeathBox_area_entered(area):
 
 func open_bookshelf():
 	$"Main Window".show()
-	print("Henlo")
 	
 
 func _on_bookshelf_entered():
@@ -106,3 +107,7 @@ func _on_InteractionBox_area_exited(area):
 	if (area.is_in_group("npc")):
 		is_at_npc = false
 		last_npc = null
+func _checkpoint_entered():
+	if (WorldviewManager.beliefs["player_can_reincarnate"]):
+		initialPosition = position
+

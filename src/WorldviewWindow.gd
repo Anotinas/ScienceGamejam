@@ -36,3 +36,16 @@ func _on_CloudsButton_toggled(button_pressed):
 		$HBoxContainer/CloudsButton.modulate = Color(1, 1, 1)
 		WorldviewManager.set_worldview("clouds_are_real", false)
 	$RichTextLabel.text = "Worldviews selected: " + str(WorldviewManager.amount_selected) + " out of " + str(WorldviewManager.MAX_WORLDVIEWS)
+
+
+
+func _on_ReincarnationButton_toggled(button_pressed):
+	if (button_pressed):
+		# This if check is due to a gimmick in how toggle mode works in Godot
+		$HBoxContainer/ReincarnationButton.modulate = Color(0, 1, 0.5)
+#		if (!WorldviewManager.beliefs["clouds_are_real"]):			
+		WorldviewManager.set_worldview("player_can_reincarnate", true)
+	else:
+		$HBoxContainer/ReincarnationButton.modulate = Color(1, 1, 1)
+		WorldviewManager.set_worldview("player_can_reincarnate", false)
+	$RichTextLabel.text = "Worldviews selected: " + str(WorldviewManager.amount_selected) + " out of " + str(WorldviewManager.MAX_WORLDVIEWS)
