@@ -11,7 +11,7 @@ func _ready():
 	SignalSingleton.connect("bookshelf_left", self, "hide")
 	$RichTextLabel.text = "Worldviews selected: " + str(WorldviewManager.amount_selected) + " out of " + str(WorldviewManager.MAX_WORLDVIEWS)
 	
-	if(WorldviewManager.unlocked_beliefs.has("cloud_exists")):
+	if(WorldviewManager.unlocked_beliefs.has("clouds_are_real")):
 		addCloudButton()
 	else:
 		SignalSingleton.connect("unlocked_clouds", self, "addCloudButton")
@@ -29,7 +29,12 @@ func show():
 	for i in get_children():
 		i.show()
 
+func unlockBelief(worldview_name: String):
+	if (!WorldviewManager.unlocked_beliefs.has(worldview_name)):
+		WorldviewManager.unlocked_beliefs.append(worldview_name)
+
 func addCloudButton() -> void:
+	unlockBelief("clouds_are_real")
 	var cloud_button = WorldviewManager.cloud_button.instance()
 	$HBoxContainer.add_child(cloud_button)
 	cloud_button.connect("toggled", self, "_on_CloudsButton_toggled")
