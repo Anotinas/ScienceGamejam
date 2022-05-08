@@ -656,7 +656,7 @@ z_index = -1
 [node name="NPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 3109, -542 )
 scale = Vector2( 2.5625, 2.5625 )
-frame = 3
+frame = 0
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1147.52, -7721.23 )
@@ -665,43 +665,42 @@ scale = Vector2( 1.63213, 1.63213 )
 [node name="angel-npc" parent="." instance=ExtResource( 3 )]
 position = Vector2( -998, -8252 )
 scale = Vector2( 2.5625, 2.5625 )
-frame = 3
+frame = 0
 dialogue_lines = [ "Be blessed", "Heaven is bliss.", "I know what it feels walking on clouds." ]
 
 [node name="angel-npc2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -660, -7910 )
 scale = Vector2( 2.5625, 2.5625 )
-frame = 3
+frame = 0
 dialogue_lines = [ "See the stars?", "They're for you.", "Be good." ]
 
 [node name="angel-npc3" parent="." instance=ExtResource( 3 )]
 position = Vector2( -723, -8349 )
 scale = Vector2( 2.5625, 2.5625 )
-frame = 0
 dialogue_lines = [ "Ya-hallo!", "Skies are nice today, aren't they?", "I'm loving it." ]
 
 [node name="AlienNPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 359, -470 )
 scale = Vector2( 2.563, 2.563 )
-frame = 3
+frame = 0
 is_alien = true
 
 [node name="todo-npc" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1421, -102 )
 scale = Vector2( 2.5625, 2.5625 )
-frame = 3
+frame = 0
 
 [node name="cave-npc" parent="." groups=["npc"] instance=ExtResource( 3 )]
 position = Vector2( -1508, -173 )
 scale = Vector2( 2.5625, 2.5625 )
 z_index = 0
-frame = 3
+frame = 0
 dialogue_lines = [ "Hi!", "Have you heard about our lord and saviour?", "They live far above the world." ]
 
 [node name="mountain-npc" parent="." instance=ExtResource( 3 )]
 position = Vector2( -3839, -2346 )
 scale = Vector2( 2.5625, 2.5625 )
-frame = 3
+frame = 0
 dialogue_lines = [ "Hello there.", "The view is nice.", "But nothing else here, except down." ]
 
 [node name="NPCcheckpointChecker" parent="." instance=ExtResource( 6 )]
@@ -714,10 +713,10 @@ position = Vector2( 1095.78, 762.906 )
 
 [node name="Angel" parent="." instance=ExtResource( 10 )]
 position = Vector2( -1286, -7707 )
-frame = 1
+frame = 3
 
 [node name="Angel2" parent="." instance=ExtResource( 10 )]
 position = Vector2( -1003.5, -8274.75 )
-frame = 3
+frame = 1
 
 [editable path="AlienNPC"]
