@@ -20,6 +20,11 @@ func _ready():
 		addHeavenButton()
 	else:
 		SignalSingleton.connect("unlocked_heaven", self, "addHeavenButton")
+		
+	if(WorldviewManager.unlocked_beliefs.has("player_reincarnates")):
+		addReincarnationButton()
+	else:
+		SignalSingleton.connect("unlocked_reincarnation", self, "addReincarnationButton")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -42,7 +47,11 @@ func addHeavenButton() -> void:
 	var heaven_button = WorldviewManager.heaven_button.instance()
 	$HBoxContainer.add_child(heaven_button)
 	heaven_button.connect("toggled", self, "_on_HeavenButton_toggled")
-	pass
+	
+func addReincarnationButton() -> void:
+	var reincarnation_button = WorldviewManager.reincarnation_button.instance()
+	$HBoxContainer.add_child(reincarnation_button)
+	reincarnation_button.connect("toggled", self, "_on_ReincarnationButton_toggled")
 
 func _on_CloudsButton_toggled(button_pressed):
 	print("pressed")
