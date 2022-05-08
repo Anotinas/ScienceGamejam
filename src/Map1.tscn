@@ -510,7 +510,7 @@ segments = PoolVector2Array( 160, 92, 0, 92, 0, 92, 52.25, 19.25, 52.25, 19.25, 
 0/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 2558, 40 )
+extents = Vector2( 756.5, 40 )
 
 [node name="Map1" type="Node2D"]
 
@@ -552,11 +552,24 @@ collision_mask = 2
 position = Vector2( 503, 1517 )
 shape = SubResource( 7 )
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="FallBox"]
+position = Vector2( 1214, 585 )
+shape = SubResource( 7 )
+
 [node name="Bookshelf1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 683, -93 )
 z_index = -1
 
-[node name="AnimatedSprite" parent="." instance=ExtResource( 3 )]
+[node name="NPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 217, 23 )
 scale = Vector2( 2.5625, 2.5625 )
 frame = 2
+
+[node name="AlienNPC" parent="." instance=ExtResource( 3 )]
+position = Vector2( 776, -104 )
+scale = Vector2( 2.563, 2.563 )
+frame = 2
+dialogue_lines = [ "I have a secret", "I am going to tell it to you now", "Are you ready?", "Promise not to tell anyone?", "Alright tere we go:", "I am an alien!", "Are you surprised?", "You should be, yeah" ]
+is_alien = true
+
+[editable path="AlienNPC"]

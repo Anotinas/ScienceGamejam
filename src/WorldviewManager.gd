@@ -11,13 +11,14 @@ onready var heaven_button = preload("res://src/HeavenButton.tscn")
 const MAX_WORLDVIEWS : int = 5
 var amount_selected : int = 0
 
-var unlocked_beliefs : Dictionary = {}
+var unlocked_beliefs: Array = []
 
 var beliefs = {
 				"clouds_are_real" : false,
 				"hell_exists": false,
 				"heaven_exists": false,
-				"player_can_reincarnate" : false}
+				"player_can_reincarnate": false,
+				"aliens_are_real": false}
 
 
 signal beliefs_changed

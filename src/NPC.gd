@@ -5,17 +5,29 @@ extends AnimatedSprite
 # var a = 2
 # var b = "text"
 
-var dialogue_lines = ["Henlo", "Skies are nice today, aren't they?", "I wonder what it feels like to walk on clouds..."]
+export var dialogue_lines = ["Henlo", "Skies are nice today, aren't they?", "I wonder what it feels like to walk on clouds..."]
 var current_dialogue: int = 0
+
+export(bool) var is_alien: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	WorldviewManager.connect("beliefs_changed", self, "_on_beliefs_changed")
+	if (is_alien && (!WorldviewManager.beliefs["aliens_are_real"])):
+		visible = false
+		$Area2D.monitorable = false
+		$Area2D.monitoring = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Background.rect_position = $Dialogue.rect_position	
 	$Background.rect_size = $Dialogue.rect_size
+	
+func _on_beliefs_changed():
+	if (WorldviewManager.beliefs["aliens_are_real"]):
+		visible = true
+		$Area2D.monitorable = false
+		$Area2D.monitoring = false
 	
 func talk():
 	if current_dialogue > dialogue_lines.size() - 1:

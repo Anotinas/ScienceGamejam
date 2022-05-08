@@ -13,7 +13,7 @@ onready var winScreen = preload("res://src/WinScreen.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	WorldviewManager.connect("worldview_changed", self, "_worldview_changed")
+	#WorldviewManager.connect("worldview_changed", self, "_worldview_changed")
 	SignalSingleton.connect("player_has_died", self, "_on_player_died")
 	SignalSingleton.connect("restart_game", self, "_restart_game")
 	SignalSingleton.connect("player_reincarnates", self, "_player_reincarnates")
